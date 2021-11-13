@@ -1,0 +1,50 @@
+.whiteboard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.tools {
+  margin-top: 3%;
+  position: fixed;
+}
+
+.color {
+  margin-top: 20%;
+  display: inline-block vertical;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+.color.black {
+  background-color: black;
+}
+.color.red {
+  background-color: red;
+}
+.color.green {
+  background-color: green;
+}
+.color.blue {
+  background-color: blue;
+}
+.color.yellow {
+  background-color: yellow;
+}
+.color.white {
+  background-color: gray;
+  text-align: center;
+}
+#eraser {
+  margin-top: 35%;
+}
+.brushsize-container {
+  margin-top: 10px;
+}
+canvas {
+  cursor: crosshair;
+}

@@ -1,0 +1,20 @@
+.container {
+  /* margin-left: 20%; */
+  visibility: hidden;
+  width: 100%;
+  /* height: calc(100vh - 20%); */
+  /* left: 0; */
+  /* margin-top: 10%;
+  bottom: 10%; */
+  height: 100%;
+  position: absolute;
+  background: white;
+}
+
+.board-container {
+  width: 98%;
+  height: 98%;
+  margin: auto;
+  margin-top: 1%;
+  /* background: white; */
+}
