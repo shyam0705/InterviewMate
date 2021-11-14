@@ -25,7 +25,7 @@ export const ScreenShare = () => {
                     
                 }
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             } 
         }
         else{

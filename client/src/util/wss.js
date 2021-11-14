@@ -13,9 +13,9 @@ let socket=null;
 export const connectWithServer=(dispatch)=>{
     socket=io(`${serverApi}/`);
     socket.on('connect',()=>{
-        console.log("connected");
+        // console.log("connected");
         dispatch(setSocketId(socket.id));
-        console.log(socket.id);
+        // console.log(socket.id);
     });
      //socket io listners
     socket.on('roomId',(data)=>{
@@ -62,7 +62,7 @@ export const connectWithServer=(dispatch)=>{
     })
 
     socket.on("mode-changed",(data)=>{
-        console.log("in mode changed");
+        // console.log("in mode changed");
         dispatch(setLang(data));
         editor.setOption("mode",data);
     })
@@ -98,7 +98,7 @@ export const joinRoom=(roomId,identity,onlyAudio)=>{
 //direct chat 
 
 export const sendDirectMessage=(data)=>{
-    console.log("in wss");
+    // console.log("in wss");
     socket.emit("direct-message",data);
 }
 
@@ -110,7 +110,7 @@ const appendNewMessageToChatHistory=(data,dispatch)=>{
 
     const {isAuthor,receiverSocketId,authorSocketId}=data;
     const tmp=store.getState().tmp.activeChatHistory;
-    console.log(tmp);
+    // console.log(tmp);
 
     if(isAuthor)
     {
@@ -140,7 +140,7 @@ const appendNewMessageToChatHistory=(data,dispatch)=>{
                     identity:data.identity
                 }]   
             }
-            console.log(newUserChatHistory);
+            // console.log(newUserChatHistory);
             const newChatHistory=[...chatHistory,newUserChatHistory];
             dispatch(setChatHistory(newChatHistory));
         }
@@ -184,7 +184,7 @@ const appendNewMessageToChatHistory=(data,dispatch)=>{
 //editor functions
 
 export const handleModeChanged=(data)=>{
-    console.log("in hadle mode changed");
+    // console.log("in hadle mode changed");
     socket.emit("mode-changed",(data));
 }
 

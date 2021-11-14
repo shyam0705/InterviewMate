@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setActiveConversation } from '../../../actions/setActiveConvesation';
 export const Participants = () => {
     const state = useSelector(state => state.tmp);
-    console.log(state.connectedUsers);
+    // console.log(state.connectedUsers);
     const dispatch = useDispatch();
     const handleActiveConversationChange=(participant)=>{
         if(participant.socketId!=state.socketId)
@@ -16,7 +16,7 @@ export const Participants = () => {
         <div className="participants_container">
             {
                 state.connectedUsers.map((participant,index)=>{
-                    console.log(participant);
+                    // console.log(participant);
                     return(
                         <>
                             <p className="participants_paragraph"

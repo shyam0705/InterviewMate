@@ -358,5 +358,5 @@ app.get("*", (req, res) => {
 });
 
 server.listen(PORT,()=>{
-    console.log("app is app and running on Port: ",PORT);
+    console.log("app is app and running");
 });

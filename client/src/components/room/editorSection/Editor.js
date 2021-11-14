@@ -40,7 +40,7 @@ export const Editor = () => {
       {
         language="java";
       } 
-      console.log(language)
+      // console.log(language)
       dispatch(setIsLoading(true));
       try{
           const res=await axios.post(`${serverApi}/runCode`,{
@@ -55,13 +55,13 @@ export const Editor = () => {
           //console.log(res.data.output);
       }
       catch(err){
-          console.log(err);
-          console.log("error");
+          // console.log(err);
+          // console.log("error");
       }
       dispatch(setIsLoading(false));
   }
   useEffect(() => {
-      console.log("uses effect fired");
+      // console.log("uses effect fired");
       editor=CodeMirror.fromTextArea(document.getElementById('ds'), {
           lineNumbers: true,
           keyMap: 'sublime',

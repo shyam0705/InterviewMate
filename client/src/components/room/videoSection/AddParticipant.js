@@ -7,7 +7,7 @@ export const AddParticipant = () => {
     const state = useSelector(state => state.tmp);
     const [email, setemail] = useState("");
     const addParticipant=async ()=>{
-        console.log(email);
+        // console.log(email);
         try{
             const res=await axios.post(`${serverApi}/sendEmail`,{
     
@@ -15,10 +15,10 @@ export const AddParticipant = () => {
                     id:state.roomId,
                     from:state.identity
                 });
-            console.log("email sent"); 
+            // console.log("email sent"); 
         }
         catch(err){
-            console.log("email not sent");
+            // console.log("email not sent");
         }
         setemail("");
     }

@@ -7,7 +7,7 @@ export const getTurnCredential=async ()=>{
         const res=await axios.get(`${serverApi}/get-turn-credentials/`)
         return res.data;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return null;
     }
 }

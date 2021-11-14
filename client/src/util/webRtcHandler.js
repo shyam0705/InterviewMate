@@ -24,14 +24,14 @@ export const getLocalPreviewAndInitLocalConnection=async (isRoomHost,identity,ro
     await fetchTurnCredentials();
     navigator.mediaDevices.getUserMedia(constrain)
         .then((stream)=>{
-            console.log("success");
+            // console.log("success");
             localStream=stream;
             showLocalVideoPreview(localStream);
             dispatch(setIsLoading(false));
             isRoomHost?createRoom(identity,onlyAudio):joinRoom(roomId,identity,onlyAudio);
         })
         .catch((err)=>{
-            console.log("error occur during getting stream"+err);
+            // console.log("error occur during getting stream"+err);
         });
 }
 
@@ -40,7 +40,7 @@ const getConfiguration = () => {
     const turnIceServers=getTurnCredentials();
     if(turnIceServers)
     {
-      console.log("turn server crendtial is:-",turnIceServers);
+      // console.log("turn server crendtial is:-",turnIceServers);
       return{
         iceServers: [
           {
@@ -51,7 +51,7 @@ const getConfiguration = () => {
       }
     }
     else{
-      console.log("only stun");
+      // console.log("only stun");
       return {
         iceServers: [
           {
@@ -87,7 +87,7 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
     });
   
     peers[connUserSocketId].on("stream", (stream) => {
-      console.log("new stream came");
+      // console.log("new stream came");
   
       addStream(stream, connUserSocketId);
       streams = [...streams, stream];
@@ -158,7 +158,7 @@ const addStream = (stream, connUserSocketId) => {
     //check if other user connected only with audio
     const participants=store.getState().tmp.connectedUsers;
     const participant=participants.find((p)=>p.socketId===connUserSocketId);
-    console.log(participant);
+    // console.log(participant);
     if(videoContainer!=null && participant?.onlyAudio)
     {
       videoContainer.appendChild(getAudioOnlyLabel());

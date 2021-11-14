@@ -46,7 +46,7 @@ export const JoinRoom = (props) => {
         if(isRoomHost)
         {
             dispatch(setHost(true));
-            console.log("user is host");
+            // console.log("user is host");
         }
     }, []);
     
@@ -83,7 +83,7 @@ export const JoinRoom = (props) => {
            
         } 
         catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 

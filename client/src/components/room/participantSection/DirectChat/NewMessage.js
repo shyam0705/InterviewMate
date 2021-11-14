@@ -14,7 +14,7 @@ export const NewMessage = ({activeConversation,identity}) => {
         }
     }
     const handleSubmit=()=>{
-        console.log("in submit");
+        // console.log("in submit");
         sendDirectMessage({
             receiverSocketId:activeConversation.socketId,
             message:message,
