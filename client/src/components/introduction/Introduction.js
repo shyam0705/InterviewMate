@@ -20,7 +20,7 @@ export const Introduction = () => {
     return (
        <div className="introduction_page_container">
            <div className="introduction_page_panel">
-               <img src={logo} className="introduction_page_image">
+               <img src={logo} alt="InterviewMate" className="introduction_page_image">
                </img>
                <div className="connecting_buttons_container">
                     <button className="join_room_button" onClick={(e)=>pushToJoinRoom(e)}>Join Room</button>
