@@ -1,6 +1,6 @@
 # InterviewMate
 
-Tried of having seprate links for video/audio and code editors in interview.InterviewMate is solution. It provides complete environment to conduct tech interviews.
+Tired of having seprate links for video/audio and code editors in interview.InterviewMate is solution. It provides complete environment to conduct tech interviews.
 
 ## Live
 
