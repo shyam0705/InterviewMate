@@ -6,7 +6,7 @@ import 'codemirror/mode/clike/clike'
 import 'codemirror/keymap/sublime'
 import CodeMirror from 'codemirror'
 import { handleCodeChange, handleOutputChanged } from '../../../util/wss';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux'
 import { setLang,setOutput } from '../../../actions/setEditor';
@@ -19,11 +19,15 @@ export var editor=null;
 export const Editor = () => {
 
   const state = useSelector(state => state.tmp);
+  const [input, setinput] = useState("");
   const dispatch = useDispatch();
   const handleChange=(event)=>{
     handleModeChanged(event.target.value);
     editor.setOption("mode",event.target.value);
     dispatch(setLang(event.target.value));
+  }
+  const handleInputChange=(e)=>{
+    setinput(e.target.value);
   }
   const runCode=async ()=>{
       var language="c";
@@ -34,7 +38,7 @@ export const Editor = () => {
       }
       if(state.lang==="text/x-c++src")
       {
-        language="c++";
+        language="cpp";
       } 
       if(state.lang==="text/x-java")
       {
@@ -46,10 +50,10 @@ export const Editor = () => {
           const res=await axios.post(`${serverApi}/runCode`,{
                   code:editor.getValue(),
                   language:`${language}`,
-                  intput:""
+                  input:input
           });
+
           const arr=res.data.output.split("\n");
-          //console.log(arr);
           dispatch(setOutput(arr));
           handleOutputChanged(arr);
           //console.log(res.data.output);
@@ -91,15 +95,26 @@ export const Editor = () => {
           </div>
           <textarea id="ds" />
           {/* <p>Output:-</p> */}
-          <div className="output">
-            <p>Output:-</p>
-            {state.output.map((out,index)=>{
-              return(
-                <div className="outputData">
-                    <pre className="tab" key={index}>{out}</pre>
-                </div>
-              )
-            })}
+          {/* intput */}
+          <div className="row">
+            <div className="input">
+                <label>Enter Input : </label>
+                <textarea
+                  value={input}
+                  onChange={handleInputChange}
+                />
+            </div>
+            <hr width="1" size="100"/>
+            <div className="output">
+              <p>Output:-</p>
+              {state.output.map((out,index)=>{
+                return(
+                  <div className="outputData">
+                      <pre className="tab" key={index}>{out}</pre>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
     );

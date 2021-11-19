@@ -80,7 +80,7 @@ app.post("/sendEmail",jsonParser,(req,res)=>{
 
 //for running code
 app.post("/runCode",jsonParser,(req,res)=>{
-    //console.log(req.body);
+
     var data = {
         "code":req.body.code,
         "language":req.body.language,

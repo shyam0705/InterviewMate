@@ -13,7 +13,7 @@
   background-color: #0f111a;
   margin-top: 10px;
 }
-.output {
+.row {
   margin-top: 5px;
   margin-bottom: 5px;
   border-style: solid;
@@ -24,7 +24,20 @@
   height: 125px;
   overflow-y: auto;
   padding-left: 10px;
+  display: flex;
+}
+.output {
+  flex: 70%;
+  margin-left: 5%;
+}
+.input {
+  flex: 25%;
 }
 .outputData {
   padding-left: 25px;
+}
+
+textarea {
+  width: 80%;
+  height: 70%;
 }
